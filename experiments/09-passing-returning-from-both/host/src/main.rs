@@ -51,6 +51,9 @@ async fn main() -> anyhow::Result<()> {
 
     let from_host = wasmtime::Func::wrap(&mut store, |ptr: u32, len: u32| {
         println!("wasm sent: {}, {}", ptr, len);
+        let mut buf = Vec::with_capacity(len as usize);
+        // No way to access memory
+        // wasmtime::Memory::read(&store, ptr as usize, )
         10 as u32
     });
 
