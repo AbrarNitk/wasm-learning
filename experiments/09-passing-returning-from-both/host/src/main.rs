@@ -71,6 +71,11 @@ async fn call_guest(mut store: &mut wasmtime::Store<()>, instance: &wasmtime::In
     let guest_memory = call_guest.call_async(&mut store, (data.to_bytes())).await?;
     println!("Guest Memory Address: {}", guest_memory);
 
+    // TODO: Read the data from memory address which is returned from wasm
+
+
+    // TODO: Need to de-allocate the memory address of wasm
+
     Ok(())
 }
 
